@@ -1,0 +1,30 @@
+import random
+from tkinter import *
+from tkinter.messagebox import showinfo
+
+win = Tk()
+win.title("RANDOM PASSWORD GENERATOR")
+win.geometry('300x70')
+
+
+def generate():
+    limit = int(entry.get())
+    s = 'abcdefghijklmnoqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$^&*()?'
+    answer = "".join(random.sample(s,limit))
+    showinfo('Password Generated', answer)
+
+
+label = Label(win, text="Password Generator :")
+label.grid(row=0, column=0)
+
+label = Label(win, text="Enter Length :")
+label.grid(row=1, column=0)
+
+entry = Entry(win)
+entry.grid(row=1, column=1)
+
+
+button = Button(win, text="Generate", command=generate)
+button.grid(row=2, column=1, padx=10, sticky='ew')
+
+win.mainloop()
